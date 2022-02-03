@@ -7,6 +7,13 @@ Room::Room(string name, int capacity, int computers, bool whiteboard) {
     setWhiteboard(whiteboard);
 }
 
+Room::Room(const Room& r){
+    setName(r.name);
+    setCapacity(r.capacity);
+    setComputers(r.computers);
+    setWhiteboard(r.whiteboard);
+}
+
 void Room::setName(string n){
     name = n;
 }
@@ -45,4 +52,12 @@ bool Room::meetsCriteria(int capacity, int computer, bool whiteboard){
 
 bool Room::lessThan(Room& s) {
     return this->name < s.name; 
+}
+
+void Room::print(){
+    string wb = "no whiteboard";
+    if(hasWhiteboard){
+        wb = "a whiteboard";
+    }
+    cout<< "Room " << getName() << " has a capacity of " << getCapacity() << " with " << getComputers() << " computers and " << wb << endl;  
 }

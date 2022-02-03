@@ -10,6 +10,11 @@ Student::Student(string name, string number) {
     setNumber(number);
 }
 
+Student::Student(const Student& s){
+    setName(s.name);
+    setNumber(s.number);
+}
+
 void Student::setName(string n) {
     name = n;
 }
@@ -28,4 +33,8 @@ string Student:: getNumber() {
 
 bool Student::lessThan(Student& s) {
     return this->number < s.number;
+}
+
+void Student::print() {
+    cout<<"Student name: " << getName() << " Student number: " << getNumber() <<endl;
 }

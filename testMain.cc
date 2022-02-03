@@ -9,8 +9,10 @@
 using namespace std;
 
 int main(){
-    Room r1 = Room("ABC", 5, 3, 1);
-    Room r2 = Room("DEF", 2, 1, 0);
-
+    Room r1 = Room("AB", 5, 3, 1);
+    Room r2 = Room("BC", 2, 1, 0);
+    Student s1 = Student("Cole", "123");
+    cout<<r1.lessThan(r2)<<endl;
+    cout<<r2.lessThan(r1)<<endl;
     return 0;
 };

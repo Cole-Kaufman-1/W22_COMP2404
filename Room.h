@@ -10,7 +10,7 @@ class Room {
 
     public:
         Room(string name, int capacity, int computers, bool whiteboard);
-        Room(const Room&);
+        Room(const Room& r);
 
         void setName(string);
         void setCapacity(int);
@@ -24,6 +24,7 @@ class Room {
 
         bool meetsCriteria(int capacity, int computers=INT32_MIN, bool whiteboard=0);
         bool lessThan(Room&);
+        void print();
 
     private:
         string name;

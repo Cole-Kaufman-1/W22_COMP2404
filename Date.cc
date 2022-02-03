@@ -1,13 +1,14 @@
 #include "Date.h"
 
 Date::Date(){
-	setDate(1901,1,1);
+	setDate(1901, 1, 1, 0, 1);
 }
 
-Date::Date(int y, int m, int d){
-	setDate(y,m,d);
+Date::Date(int y, int m, int d, int h, int dur){
+	setDate(y,m,d, h, dur);
+	setHour(h);
+	setDuration(dur);
 }
-
 
 //setters
 void Date::setDay(int d){
@@ -28,40 +29,76 @@ void Date::setYear(int y){
 	year = y;
 }
 
-void Date::setDate(int y, int m, int d){
+void Date::setHour(int h){
+	if (h > 23) h = 23;
+	if (h < 0) h = 0;
+	hour = h;
+}
+
+void Date::setDuration(int dur){
+	if (dur > MAX_DURATION) dur = 3;
+	if (dur < 1) dur = 1;
+	duration = dur;
+}
+
+void Date::setDate(int y, int m, int d, int h, int dur){
 	setMonth(m);
 	setDay(d);
 	setYear(y);
+	setHour(h);
+	setDuration(dur);
 }
 
 void Date::setDate(Date& d){
-	setDate(d.year, d.month, d.day);
+	setDate(d.year, d.month, d.day, d.hour, d.duration);
 }
 
 
 //getters
-int Date::getDay(){ return day; }
-int Date::getMonth(){ return month; }
-int Date::getYear(){ return year; }
+int Date::getDay(){ 
+	return day; 
+}
+int Date::getMonth(){
+	return month; 
+}
+
+int Date::getYear(){
+	return year; 
+}
+
+int Date::getHour() {
+	return hour;
+}
+
+int Date::getDuration(){
+	return duration;
+}
+
 const string& Date::getMonthName(){return months[month-1];}
 
 
 //other
-
 bool Date::lessThan(Date& d){
 	if (year == d.year){
 		if (month == d.month){
-			return day < d.day;
-		}else{
+			if (day == d.day){
+				return hour < d.hour;
+			}
+			else{
+				return day < d.day;
+			}
+		}
+		else{
 			return month  < d.month;
 		}
-	}else{
+	}
+	else{
 		return year < d.year;
 	}	
 }
 
 void Date::print(){
-	cout << getMonthName()<<" "<<getDay()<<", "<<getYear()<<endl;
+	cout << getMonthName()<<" "<<getDay()<<", "<<getYear()<< " Hour: " << getHour()<< " Duration: " << getDuration()<<endl;
 }
 
 int Date::getMaxDay(){
@@ -75,3 +112,17 @@ int Date::getMaxDay(){
 	}
 }
 
+
+bool Date::overlaps(Date& d) {
+	if (year == d.year && month == d.month && day == d.day) {
+		if (hour == d.hour){
+			return true;
+		}
+		//simple but effective statment to check overlap
+		//start < d.end && d.start < end
+		else if(hour < (d.hour + d.duration) && d.hour < (hour + duration)){
+			return true;
+		}
+	}
+	return false;
+}

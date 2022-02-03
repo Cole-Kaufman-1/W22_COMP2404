@@ -20,6 +20,7 @@ class Student {
         string getNumber(); 
 
         bool lessThan(Student&);
+        void print();
 
     private:
         string name;
