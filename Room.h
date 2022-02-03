@@ -10,7 +10,7 @@ class Room {
 
     public:
         Room(string name, int capacity, int computers, bool whiteboard);
-        Room(const Room& r);
+        Room(const Room& room);
 
         void setName(string);
         void setCapacity(int);

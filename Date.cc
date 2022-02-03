@@ -5,9 +5,7 @@ Date::Date(){
 }
 
 Date::Date(int y, int m, int d, int h, int dur){
-	setDate(y,m,d, h, dur);
-	setHour(h);
-	setDuration(dur);
+	setDate(y, m, d, h, dur);
 }
 
 //setters
@@ -98,7 +96,7 @@ bool Date::lessThan(Date& d){
 }
 
 void Date::print(){
-	cout << getMonthName()<<" "<<getDay()<<", "<<getYear()<< " Hour: " << getHour()<< " Duration: " << getDuration()<<endl;
+	cout << getMonthName()<<" "<<day<<", "<<year<< " Hour: " << hour<< " Duration: " << duration<<endl;
 }
 
 int Date::getMaxDay(){

@@ -1,18 +1,18 @@
 #include "Student.h"
 
 Student::Student(){
-    setName("Default Value");
-    setNumber("0");
+    name = "Default Value";
+    number = "0";
 }
 
-Student::Student(string name, string number) {
-    setName(name);
-    setNumber(number);
+Student::Student(string n, string num) {
+    name = n;
+    number = num;
 }
 
 Student::Student(const Student& s){
-    setName(s.name);
-    setNumber(s.number);
+    name = s.name;
+    number = s.number;
 }
 
 void Student::setName(string n) {

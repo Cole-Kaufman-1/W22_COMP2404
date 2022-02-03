@@ -1,17 +1,17 @@
 #include "Room.h"
 
-Room::Room(string name, int capacity, int computers, bool whiteboard) {
-    setName(name);
-    setCapacity(capacity);
-    setComputers(computers);
-    setWhiteboard(whiteboard);
+Room::Room(string n, int cap, int comp, bool wb) {
+    name = n;
+    capacity = cap;
+    computers = comp;
+    whiteboard = wb;
 }
 
 Room::Room(const Room& r){
-    setName(r.name);
-    setCapacity(r.capacity);
-    setComputers(r.computers);
-    setWhiteboard(r.whiteboard);
+    name = r.name;
+    capacity = r.capacity;
+    computers = r.computers;
+    whiteboard = r.whiteboard;
 }
 
 void Room::setName(string n){
@@ -50,8 +50,8 @@ bool Room::meetsCriteria(int capacity, int computer, bool whiteboard){
     return (this->capacity >= capacity) && (this->computers >= computer) && (this->whiteboard >= whiteboard);
 }
 
-bool Room::lessThan(Room& s) {
-    return this->name < s.name; 
+bool Room::lessThan(Room& r) {
+    return this->name < r.name; 
 }
 
 void Room::print(){
@@ -59,5 +59,5 @@ void Room::print(){
     if(hasWhiteboard){
         wb = "a whiteboard";
     }
-    cout<< "Room " << getName() << " has a capacity of " << getCapacity() << " with " << getComputers() << " computers and " << wb << endl;  
+    cout<< "Room " << name << " has a capacity of " << capacity << " with " << computers << " computers and " << wb << endl;  
 }
