@@ -22,7 +22,7 @@ class Room {
         int getComputers();
         bool hasWhiteboard();
 
-        bool meetsCriteria(int capacity, int computers=INT32_MIN, bool whiteboard=0);
+        bool meetsCriteria(int capacity, int computers=0, bool whiteboard=0);
         bool lessThan(Room&);
         void print();
 

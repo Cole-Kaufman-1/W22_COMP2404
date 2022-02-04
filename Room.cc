@@ -56,7 +56,7 @@ bool Room::lessThan(Room& r) {
 
 void Room::print(){
     string wb = "no whiteboard";
-    if(hasWhiteboard){
+    if(hasWhiteboard()){
         wb = "a whiteboard";
     }
     cout<< "Room " << name << " has a capacity of " << capacity << " with " << computers << " computers and " << wb << endl;  

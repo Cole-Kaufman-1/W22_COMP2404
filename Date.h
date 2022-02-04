@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 const int MAX_DURATION = 3;
+
+using namespace std;
 
 class Date {
 		

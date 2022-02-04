@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-//#include "Library.h"
+#include "Library.h"
 #include "Date.h"
 
 const std::string red("\033[0;31m");
@@ -107,7 +107,7 @@ void testReservations(Library& lib){
     lib.makeReservation(students[2],rooms[1],d2);
 
     cout<<"Print reservations (should be 2)"<<endl<<endl;
-    lib.printReservations();
+    //lib.printReservations();
 
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
     d1.print();
@@ -120,7 +120,7 @@ void testReservations(Library& lib){
     lib.makeReservation(students[2],rooms[1],d1);
 
     cout<<"Print reservations (should be 2)"<<endl<<endl;
-    lib.printReservations();
+    //lib.printReservations();
 
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
     d3.print();
@@ -133,7 +133,7 @@ void testReservations(Library& lib){
     lib.makeReservation(students[2],rooms[1],d3);
 
     cout<<"Print reservations (should be 3)"<<endl<<endl;
-    lib.printReservations();
+    //lib.printReservations();
 
     cout<<"Reserving "<<rooms[0]<<" for "<<students[3]<<" on "<<endl;
     d4.print();
@@ -146,6 +146,6 @@ void testReservations(Library& lib){
     lib.makeReservation(students[3],rooms[0],d4);
 
     cout<<"Print reservations (should be 4)"<<endl<<endl;
-    lib.printReservations();
+    //lib.printReservations();
 
 }
