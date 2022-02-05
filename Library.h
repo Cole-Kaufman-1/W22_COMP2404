@@ -1,6 +1,6 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
-#define MAX_ARR_SIZE 100
+#define MAX_ARR_SIZE 25
 
 #include <iostream>
 #include <string>
@@ -23,7 +23,8 @@ class Library {
         bool getRoom(const string& roomName, Room** room);
         bool isFree(const string&, Date&);
         bool makeReservation(const string& student, const string& room, Date&);
-        //void update(Date&) implement for bonus marks if enough time
+        void print();
+        //void update(Date&) did not implement due to time constraints
         
     private:
         Student** students;

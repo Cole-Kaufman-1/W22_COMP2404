@@ -31,6 +31,8 @@ int main(){
     Library l1 = Library();
     populate(l1);
     testReservations(l1);
-
+    
+    //uncomment below to see all objects present in the library
+    //l1.print();
     return 0;
 }

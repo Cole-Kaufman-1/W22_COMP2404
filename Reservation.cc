@@ -4,8 +4,6 @@ Reservation::Reservation(Student* s, Room* r, Date& d) {
     student = s;
     room = r;
     date.setDate(d);
-    cout<< "In reservations cstor"<<endl;
-    print();
 }
 
 Student* Reservation::getStudent() {

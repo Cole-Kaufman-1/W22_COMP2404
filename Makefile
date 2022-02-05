@@ -1,7 +1,7 @@
-OBJ = student.o room.o date.o reservation.o library.o main.o
+OBJ = Student.o Room.o Date.o Reservation.o Library.o main.o
 
-main: $(OBJ)
-	g++ -g -o main $(OBJ)
+a1: $(OBJ) a1-global.o
+	g++ -g -o a1 $(OBJ)
 
 main.o: main.cc
 	g++ -c -g main.cc
@@ -25,4 +25,4 @@ a1-global.o: a1-global.cc
 	g++ -c -g a1-global.cc
 
 clean: 
-	rm -f main *.o
+	rm -f a1 *.o

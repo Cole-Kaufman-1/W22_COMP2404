@@ -46,7 +46,7 @@ bool Library::addRoom(string name, int capacity, int computers, bool whiteboard)
 bool Library::getStudent(const string& name, Student** student){
     for (int i = 0; i < numStudents; ++i){
         if(name == students[i]->getName()){
-            student = &students[i];
+            *student = students[i];
             return true;
         }
     }
@@ -56,7 +56,7 @@ bool Library::getStudent(const string& name, Student** student){
 bool Library::getRoom(const string& roomName, Room** room) {
     for (int i = 0; i < numRooms; ++i){
         if(roomName == rooms[i]->getName()){
-            room = &rooms[i];
+            *room = rooms[i];
             return true;
         }
     }
@@ -67,7 +67,7 @@ bool Library::isFree(const string& room, Date& d){
     Room* tempRoom;
     if(getRoom(room, &tempRoom)){
         for (int i = 0; i < numReservations; i++) {
-            if (reservations[i]->getRoom()->getName().compare(room) && reservations[i]->overlaps(room, d)){
+            if (reservations[i]->getRoom()->getName() == room && reservations[i]->overlaps(room, d)){
                 return false;
             }
         }
@@ -79,17 +79,33 @@ bool Library::isFree(const string& room, Date& d){
 
 bool Library::makeReservation(const string& student, const string& room, Date& d){
     Room* tempRoom;
-    Student* tempStudent;
+    Student *tempStudent;
     if (getRoom(room, &tempRoom) && getStudent(student, &tempStudent)){
         if(isFree(room, d) && numReservations < MAX_ARR_SIZE){
-            Room r1 = Room(*tempRoom);
-            Student s1 = Student(*tempStudent);
             reservations[numReservations] = new Reservation(tempStudent, tempRoom, d);
             ++numReservations;
             return true;
         }
     }
     return false;
+}
+
+void Library::print() {
+    cout<< "Library collections: " <<endl;
+    cout<< "Rooms: " << endl;
+    for (int i = 0; i < numRooms; i++) {
+        rooms[i]->print();
+    }
+
+    cout<< "\nStudents: " << endl;
+    for (int i = 0; i < numStudents; i++) {
+        students[i]->print();
+    }
+
+    cout<< "\nReservations: " << endl;
+    for (int i = 0; i < numReservations; i++) {
+        reservations[i]->print();
+    }
 }
 
 

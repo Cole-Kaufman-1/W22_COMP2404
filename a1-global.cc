@@ -99,6 +99,7 @@ void testReservations(Library& lib){
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
     d2.print();
 
+
     if (lib.isFree(rooms[1],d2)){
         cout << red<< "Error** It's free"<<def<<endl<<endl;
     }else{
@@ -106,7 +107,7 @@ void testReservations(Library& lib){
     }
     lib.makeReservation(students[2],rooms[1],d2);
 
-    cout<<"Print reservations (should be 2)"<<endl<<endl;
+    //cout<<"Print reservations (should be 2)"<<endl<<endl;
     //lib.printReservations();
 
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
@@ -119,7 +120,7 @@ void testReservations(Library& lib){
     }
     lib.makeReservation(students[2],rooms[1],d1);
 
-    cout<<"Print reservations (should be 2)"<<endl<<endl;
+    //cout<<"Print reservations (should be 2)"<<endl<<endl;
     //lib.printReservations();
 
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
@@ -132,7 +133,7 @@ void testReservations(Library& lib){
     }
     lib.makeReservation(students[2],rooms[1],d3);
 
-    cout<<"Print reservations (should be 3)"<<endl<<endl;
+    //cout<<"Print reservations (should be 3)"<<endl<<endl;
     //lib.printReservations();
 
     cout<<"Reserving "<<rooms[0]<<" for "<<students[3]<<" on "<<endl;
@@ -145,7 +146,7 @@ void testReservations(Library& lib){
     }
     lib.makeReservation(students[3],rooms[0],d4);
 
-    cout<<"Print reservations (should be 4)"<<endl<<endl;
+    //cout<<"Print reservations (should be 4)"<<endl<<endl;
     //lib.printReservations();
 
 }
