@@ -64,20 +64,32 @@ bool Library::getRoom(const string& roomName, Room** room) {
 }
 
 bool Library::isFree(const string& room, Date& d){
-    Room* r;
-    if(getRoom(room, &r)){
-        for (int i = 0; i < numReservations; ++i) {
-            if (reservations[i]->getRoom()->getName() == room && reservations[i]->overlaps(room, d)){
+    Room* tempRoom;
+    if(getRoom(room, &tempRoom)){
+        for (int i = 0; i < numReservations; i++) {
+            if (reservations[i]->getRoom()->getName().compare(room) && reservations[i]->overlaps(room, d)){
                 return false;
             }
         }
+
         return true;
     }
     return false;
 }
 
 bool Library::makeReservation(const string& student, const string& room, Date& d){
-    
+    Room* tempRoom;
+    Student* tempStudent;
+    if (getRoom(room, &tempRoom) && getStudent(student, &tempStudent)){
+        if(isFree(room, d) && numReservations < MAX_ARR_SIZE){
+            Room r1 = Room(*tempRoom);
+            Student s1 = Student(*tempStudent);
+            reservations[numReservations] = new Reservation(tempStudent, tempRoom, d);
+            ++numReservations;
+            return true;
+        }
+    }
+    return false;
 }
 
 

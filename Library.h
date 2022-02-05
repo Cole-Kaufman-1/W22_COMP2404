@@ -9,6 +9,8 @@
 #include "Reservation.h"
 #include "Date.h"
 
+using namespace std;
+
 class Library {
 
     public:
