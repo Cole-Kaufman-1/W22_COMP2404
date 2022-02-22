@@ -33,11 +33,11 @@ class PodArray {
 		* to the Client's PodArray.
 		*/
 		bool addPodcast(Podcast*);
-		bool getPodcast(const string& title, Podcast**);
+		bool getPodcast(const string& title, Podcast**) const;
 		bool removePodcast(const string& title, Podcast**);
-		int size();
-		bool isFull();
-		void print();
+		int size() const;
+		bool isFull() const;
+		void print() const;
 	
 	private:
 		int numPods;

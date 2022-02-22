@@ -54,7 +54,6 @@ bool Podcast::lessThan(Podcast& pod) const {
 }
 
 void Podcast::print() const {
-    //update to print each episode later
     cout << "Podcast: " << title << " hosted by: " << host << " with " << numEps << " episodes.\n" << endl;
 
     for (int i = 0; i < numEps; ++i) {
