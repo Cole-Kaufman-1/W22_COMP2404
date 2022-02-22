@@ -13,8 +13,8 @@ class Episode {
         void print() const;
 
     private:
-        string name, content, podcast; 
-        int number;
+        const string name, content, podcast; 
+        const int number;
 };
 
 #endif

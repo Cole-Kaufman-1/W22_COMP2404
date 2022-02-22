@@ -13,12 +13,12 @@ class Podcast{
         const string& getHost() const;
         int getNumEpisodes() const;
         bool addEpisode(const string& title, const string& content);
-        bool getEpisode(int index, Episode** ep);
+        bool getEpisode(int index, Episode** ep) const;
         bool lessThan(Podcast& pod) const;
         void print() const;
         
     private:
-        string title, host;
+        const string title, host;
         Episode** episodes;
         int numEps;
 

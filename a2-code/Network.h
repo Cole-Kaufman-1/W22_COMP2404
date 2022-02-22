@@ -28,7 +28,7 @@ class Network{
         void print() const;
 
     private:
-        string name;
+        const string name;
         PodArray* podArr;
         Subscriber* subs[MAX_SUBS];
         int numSubs;

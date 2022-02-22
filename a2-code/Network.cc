@@ -22,8 +22,8 @@ bool Network::addPodcast(const string& podcast, const string & host) {
 }
 
 bool Network::removePodcast(const string& podcast) {
-    Podcast** tempPod;
-    bool retVal = podArr->removePodcast(podcast, tempPod);
+    Podcast* tempPod;
+    bool retVal = podArr->removePodcast(podcast, &tempPod);
     delete tempPod;
     return retVal;
 }

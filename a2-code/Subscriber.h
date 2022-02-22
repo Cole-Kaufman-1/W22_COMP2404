@@ -12,7 +12,7 @@ class Subscriber {
         void print() const;
 
     private:
-        string name, creditCard;
+        const string name, creditCard;
 };
 
 #endif

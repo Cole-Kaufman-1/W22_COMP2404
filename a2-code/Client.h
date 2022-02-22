@@ -15,7 +15,7 @@ class Client{
         void print() const;
 
     private:
-        string name;
+        const string name;
         PodArray* podArr;
 };
 

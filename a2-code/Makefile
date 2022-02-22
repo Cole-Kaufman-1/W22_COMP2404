@@ -9,25 +9,25 @@ main.o: main.cc TestControl.o
 TestView.o: TestView.h TestView.cc TestControl.o
 
 TestControl.o: TestControl.h TestControl.cc Network.o
-	g++ -c TestControl.cc
+	g++ -c -g TestControl.cc
 
 Client.o: Client.h Client.cc Network.o
-	g++ -c Client.cc
+	g++ -c -g Client.cc
 
 Network.o: Network.h Network.cc PodArray.o
-	g++ -c Network.cc
+	g++ -c -g Network.cc
 
 Subscriber.o: Subscriber.h Subscriber.cc
-	g++ -c Subscriber.cc
+	g++ -c -g Subscriber.cc
 
 PodArray.o: PodArray.cc PodArray.h Podcast.o
-	g++ -c PodArray.cc
+	g++ -c -g PodArray.cc
 
 Podcast.o: Podcast.cc Podcast.h Episode.h
-	g++ -c Podcast.cc
+	g++ -c -g Podcast.cc
 	
 Episode.o: Episode.cc Episode.h Podcast.h
-	g++ -c Episode.cc
+	g++ -c -g Episode.cc
 
 clean:
 	rm -f a2 *.o	

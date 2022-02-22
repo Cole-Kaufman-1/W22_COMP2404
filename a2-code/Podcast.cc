@@ -40,7 +40,7 @@ bool Podcast::addEpisode(const string& epTitle, const string& content){
     return true;
 }
 
-bool Podcast::getEpisode(int i, Episode** ep){
+bool Podcast::getEpisode(int i, Episode** ep) const{
     if (i >= numEps || i < 0) {
         *ep = NULL;
         return false;
