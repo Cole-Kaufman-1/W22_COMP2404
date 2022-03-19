@@ -1,6 +1,28 @@
 
 #include "Product.h"
 
+Product::Product(const string& name, StoreLocation* sloc):name(name), storeLocation(sloc), whLocations(new Queue()) {}
+
+Product::~Product(){
+	delete whLocations;
+}
+
+const string& Product::getName() {
+	return name;
+}
+
+StoreLocation* Product::getStoreLocation() const{
+	return storeLocation;
+}
+
+void Product::setStoreLocation(StoreLocation* sloc) {
+	storeLocation = sloc;
+}
+
+void Product::addWHLocation(WHLocation* whloc) {
+	whLocations->addLast(whloc);
+}
+
 
 /* We take as much as we can from the storeLocation.
    The input-output parameter quantity returns 

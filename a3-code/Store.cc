@@ -1,9 +1,51 @@
 
 #include "Store.h"
 
+Store::Store(const string& name) : name(name), products(new List()){}
 
+Store::~Store() {
+    delete products;
+}
 
+void Store::findAvailableSLoc(StoreLocation** sloc) {
+    for (int i = 0; i < SLOCS; ++i){
+        if (storeLocs[i].isAvailable()){
+            **sloc = storeLocs[i];
+        }
+    }
+}
 
+void Store::findAvailableWHLoc(WHLocation** wloc) {
+    for (int i = 0; i < WHLOCS; ++i){
+        if (whLocs[i].isAvailable()){
+            **wloc = whLocs[i];
+        }
+    }
+}
+
+void Store::findProduct(const string& name, Product** prod) {
+    products->findProduct(name, prod);
+}
+
+void Store::printStoreStock(){
+    for (int i = 0; i < SLOCS; ++i) {
+        if (!storeLocs[i].isAvailable()){
+            storeLocs[i].print();
+        }
+    }
+}
+
+void Store::printWareHouseStock(){
+    for (int i = 0; i < WHLOCS; ++i){
+        if (!whLocs[i].isAvailable()){
+            whLocs[i].print();
+        }
+    }
+}
+
+void Store::printProducts(){
+    products->print();
+}
 
 void Store::receiveProduct(const string& pname, int quantity){
     Product* prod = NULL;

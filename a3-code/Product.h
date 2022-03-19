@@ -22,7 +22,7 @@ class Product {
 		
 		//getters and setters
 		const string& getName();
-		StoreLocation* getStoreLocation();
+		StoreLocation* getStoreLocation() const;
 		void setStoreLocation(StoreLocation*);
 		void addWHLocation(WHLocation*);
 

@@ -1,4 +1,3 @@
-
 #ifndef STORE_H
 #define STORE_H
 
@@ -37,7 +36,8 @@ class Store {
 	
 	private:
 		string name;
-		
-	
+		StoreLocation storeLocs[SLOCS];
+		WHLocation whLocs[WHLOCS];
+		List* products;
 };
 #endif

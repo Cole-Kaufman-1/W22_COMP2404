@@ -4,34 +4,34 @@ a3: $(objects)
 	g++ -o a3 $(objects)
 
 main.o: main.cc Control.h
-	g++ -c main.cc 
+	g++ -c -g main.cc 
 
 View.o: View.h View.cc
-	g++ -c View.cc
+	g++ -c -g View.cc
 
 Control.o: Control.h Control.cc
-	g++ -c Control.cc
+	g++ -c -g Control.cc
 
 Store.o: Store.h Store.cc
-	g++ -c Store.cc
+	g++ -c -g Store.cc
 
 Queue.o: Queue.h Queue.cc Product.h
-	g++ -c Queue.cc
+	g++ -c -g Queue.cc
 
 List.o: List.h List.cc Product.h
-	g++ -c List.cc
+	g++ -c -g List.cc
 
 WHLocation.o: WHLocation.h WHLocation.cc Location.h
-	g++ -c WHLocation.cc
+	g++ -c -g WHLocation.cc
 
 StoreLocation.o: StoreLocation.h StoreLocation.cc Location.h
-	g++ -c StoreLocation.cc
+	g++ -c -g StoreLocation.cc
 	
 Location.o: Location.cc Location.h Product.h
-	g++ -c Location.cc
+	g++ -c -g Location.cc
 
 Product.o: Product.cc Product.h 
-	g++ -c Product.cc
+	g++ -c -g Product.cc
 
 clean:
 	rm -f a3 *.o	
