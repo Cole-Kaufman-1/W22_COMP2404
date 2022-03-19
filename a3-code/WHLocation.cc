@@ -22,7 +22,9 @@ bool WHLocation::add(const string& productName, int amount) {
 bool WHLocation::remove(int amount) {
     if (!isAvailable() && amount <= getQuantity()) {
         quantity -= amount;
-        (quantity == 0) ? product = NONE : NULL;
+        if (quantity == 0) {
+            product = NONE;
+        }
         return true;
     }
     return false;

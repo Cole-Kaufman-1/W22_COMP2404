@@ -29,6 +29,8 @@ void Control::launch(){
             case 3: store->printStoreStock(); break;
             case 4: store->printWareHouseStock(); break;
             case 5: store->printProducts(); break;
+            case 6: queueTest(); break;
+            case 7: locationTest(); break;
         }
     }
     delete store;

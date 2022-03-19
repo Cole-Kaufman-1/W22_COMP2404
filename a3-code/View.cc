@@ -6,7 +6,7 @@ using namespace std;
 
 void View::showMenu(int& choice)
 {
-  int numOptions = 5;
+  int numOptions = 7;
 
   cout << endl;
   cout << "Which test would you like to run?"<< endl;
@@ -15,6 +15,8 @@ void View::showMenu(int& choice)
   cout << "  (3) Print store locations" << endl;
   cout << "  (4) Print warehouse locations" << endl;
   cout << "  (5) Print products" << endl;
+  cout << "  (6) Queue Test" << endl;
+  cout << "  (7) Location Test" << endl;
   cout << "  (0) Exit" << endl<<endl;
 
   cout << "Enter your selection: ";

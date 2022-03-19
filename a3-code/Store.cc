@@ -10,7 +10,8 @@ Store::~Store() {
 void Store::findAvailableSLoc(StoreLocation** sloc) {
     for (int i = 0; i < SLOCS; ++i){
         if (storeLocs[i].isAvailable()){
-            **sloc = storeLocs[i];
+            *sloc = &storeLocs[i];
+            return;
         }
     }
 }
@@ -18,7 +19,8 @@ void Store::findAvailableSLoc(StoreLocation** sloc) {
 void Store::findAvailableWHLoc(WHLocation** wloc) {
     for (int i = 0; i < WHLOCS; ++i){
         if (whLocs[i].isAvailable()){
-            **wloc = whLocs[i];
+            *wloc = &whLocs[i];
+            return;
         }
     }
 }
