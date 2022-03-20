@@ -76,30 +76,6 @@ void List::remove(const string& name, Product** goner){
     delete currNode;
 }
 
-// seems to do the same thing as findProduct()
-//void List::get(const string& name, Product** prod){
-//    Node * currNode;
-//    Node * prevNode;
-//
-//    currNode = head;
-//    prevNode = NULL;
-//
-//    while (currNode!=NULL){
-//        if (currNode->data->getName() == name){
-//           break; 
-//        }
-//        prevNode = currNode;
-//        currNode = currNode->next;
-//    }
-//
-//    if (currNode == NULL){
-//        *prod = NULL;
-//        return;
-//    }
-//    //currNode is not NULL
-//    *prod = currNode->data;
-//}
-
 void List::removeUpTo(const string& name){
     Node * currNode;
     Node * prevNode;

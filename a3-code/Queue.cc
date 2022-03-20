@@ -19,27 +19,37 @@ bool Queue::isEmpty() const {
     return false;
 }
 
-void Queue::peekFirst(WHLocation** stu) const {
+void Queue::peekFirst(WHLocation** loc) const {
     if(isEmpty()){
-        *stu = NULL;
+        *loc = NULL;
         return;
     }
-    *stu = head->data;
+    *loc = head->data;
 }
 
-void Queue::popFirst(WHLocation** stu) {
+void Queue::popFirst(WHLocation** loc) {
     if(isEmpty()) {
-        *stu = NULL;
+        *loc = NULL;
         return;
     }
     Node* firstNode = head;
-    *stu = head->data;
-    head = head->next;
+    if (firstNode->next != NULL){
+        *loc = firstNode->data;
+        firstNode = firstNode->next;
+        delete head;
+        head = firstNode;
+    }
+    else{
+        *loc = head->data;
+        delete head;
+        head = NULL;
+        tail = NULL;
+    }
 }
 
-void Queue::addLast(WHLocation* stu){
+void Queue::addLast(WHLocation* loc){
     Node *newNode = new Node();
-    newNode->data = stu;
+    newNode->data = loc;
     newNode->next = NULL;
     
     if(isEmpty()){

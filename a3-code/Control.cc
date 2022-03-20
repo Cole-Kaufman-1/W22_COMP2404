@@ -16,7 +16,7 @@ void Control::launch(){
 
     cout<<"initializing..."<<endl;
 
-    initStore(store);
+    //initStore(store);
     
     cout<<"initialized!"<<endl;
     int choice = 5;
@@ -101,6 +101,7 @@ void Control::locationTest(){
 	loc.print();
 	loc.add(p.getName(), q);
 	loc.print();
+    delete product;
 }
 
 void Control::queueTest(){

@@ -23,7 +23,7 @@ bool Location::isEmpty() const {
 }
 
 bool Location::isAvailable() const {
-    return product == "Empty";
+    return product == NONE;
 }
 
 void Location::print() const {
