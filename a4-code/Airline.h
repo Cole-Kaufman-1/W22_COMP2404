@@ -16,6 +16,7 @@ class Airline {
         void printParts() const;
         void inspectionReport(const string&, Date&) const;
         bool install(const string&, const string&, Date&);
+        void print() const;
     
     private:
         string name;

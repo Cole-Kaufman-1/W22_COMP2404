@@ -7,13 +7,6 @@ ostream& operator<<(ostream& os, const Aircraft& a){
 
 Aircraft::Aircraft(const string& t, const string& reg) : type(t), registration(reg) {}
 
-// check if needed after
-Aircraft::~Aircraft() {
-    for (int i = 0; i < parts.getSize(); i++){
-        delete parts[i];
-    }
-}
-
 const string& Aircraft::getRegistration() const {
     return registration;
 }
@@ -32,7 +25,7 @@ void Aircraft::takeFlight(int hours) {
     } 
 }
 
-void Aircraft::inspectionReport(Date& d, Array<Part*> *toInspect) {
+void Aircraft::inspectionReport(Date& d, Array<Part*> *toInspect) const{
     for (int i = 0; i < parts.getSize(); i++) {
         if (parts[i]->inspection(d)){
             toInspect->add(parts[i]);

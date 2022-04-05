@@ -13,8 +13,7 @@ Airline::~Airline() {
 
 Aircraft* Airline::getAircraft(const string& reg) const{
     for (int i = 0; i < aircrafts.getSize(); i++){
-        //cout << "AIRCRAFT REG: " << aircrafts[i]->getRegistration() << " CMP REG: " << reg<<endl; 
-        if(aircrafts[i]->getRegistration() == reg){
+        if(aircrafts[i]->getRegistration().compare(reg) == 0){
             return aircrafts[i];
         }
     }
@@ -23,7 +22,7 @@ Aircraft* Airline::getAircraft(const string& reg) const{
 
 Part* Airline::getPart(const string& name) const{
     for (int i = 0; i < parts.getSize(); i++){
-        if(parts[i]->getName() == name){
+        if(parts[i]->getName().compare(name) == 0){
             return parts[i];
         }
     }
@@ -38,7 +37,7 @@ void Airline::addAircraft(const string& type, const string& reg) {
 
 void Airline::addPart(const string& part, int fh_inspect, int it_insepct) {
     if(fh_inspect && it_insepct){
-        FHIT_Part *newPart = newPart = new FHIT_Part(part, fh_inspect , it_insepct);
+        FHIT_Part *newPart = new FHIT_Part(part, fh_inspect , it_insepct);
         parts.add(newPart);
     }
     else if(fh_inspect != 0 && it_insepct == 0){
@@ -61,16 +60,14 @@ void Airline::takeFlight(const string& reg, int hours) {
 }
 
 void Airline::printAircraft() const{
-    cout << "Airline " << name << " has aircrafts:" << endl;
     for (int i = 0; i < aircrafts.getSize(); i++){
         cout << *aircrafts[i];
     }
 }
 
 void Airline::printParts() const{
-     cout << "Airline " << name << " has parts :" << endl;
      for (int i = 0; i < parts.getSize(); i++){
-        cout << *parts[i];
+        cout << *parts[i] << endl;
     }
 }
 
@@ -81,13 +78,14 @@ void Airline::inspectionReport(const string& reg, Date& d) const{
         cerr<<"In inspectionReport: Aircraft with registration " << reg << " does not exist." << endl;
         return;
     }
-    Array<Part*> *toInspect;
-    tmpAircraft->inspectionReport(d, toInspect);
-    // customize print since we don't want to print all parts just one that require inspection
-    cout << "Inspection Report of aircraft with registration:  " << tmpAircraft->getRegistration();
-    for (int i = 0; i < toInspect->getSize(); i++){
-        cout << *(*toInspect)[i];
+    Array<Part*> toInspect;
+    tmpAircraft->inspectionReport(d, &toInspect);
+    // customize print since we only want to print parts requiring inspection
+    cout << "The following parts from " << tmpAircraft->getRegistration() << " require inspection:" << endl;
+    for (int i = 0; i < toInspect.getSize(); i++){
+        cout << *toInspect[i] << endl;
     }
+    cout << endl;
 }
 
 bool Airline::install(const string& reg, const string& partName, Date& d) {
@@ -103,4 +101,11 @@ bool Airline::install(const string& reg, const string& partName, Date& d) {
     }
     tmpAircraft->install(tmpPart, d);
     return true;
+}
+
+void Airline::print() const{
+    cout << "Airline : "  << name << " has Aircrafts: " << endl;
+    printAircraft();
+    cout << " and Parts: " << endl;
+    printParts();
 }

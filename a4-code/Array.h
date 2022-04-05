@@ -27,7 +27,7 @@ class Array {
 		void add(const T&);
 		int getSize() const;
 		bool isFull() const;
-		T& operator[](int) const;
+		const T& operator[](int) const;
 	
 	private:
 		int size;
@@ -62,8 +62,8 @@ bool Array<T>::isFull() const{
 	return size >= MAX_ARR;
 }
 
-template <class V>
-ostream& operator<<(ostream& out, const Array<V>& arr){
+template <class T>
+ostream& operator<<(ostream& out, const Array<T>& arr){
 	int i = 0;
 	while(i < arr.size){
 		out<<arr.elements[i]<<endl;
@@ -73,7 +73,7 @@ ostream& operator<<(ostream& out, const Array<V>& arr){
 }
 
 template <class T>
-T& Array<T>::operator[](int index) const{
+const T& Array<T>::operator[](int index) const{
 	if (index < 0 || index > size - 1){
 		cerr<<"Invalid index exiting program"<<endl;
 		exit(1);

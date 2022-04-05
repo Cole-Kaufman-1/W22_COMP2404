@@ -11,11 +11,10 @@ class Aircraft {
     friend ostream& operator<<(ostream&, const Aircraft&);
     public:
         Aircraft(const string&, const string&);
-        ~Aircraft();
         const string& getRegistration() const;
         void install(Part*, Date&);
         void takeFlight(int);
-        void inspectionReport(Date&, Array<Part*>*);
+        void inspectionReport(Date&, Array<Part*>*) const;
 
     private:
         string type;

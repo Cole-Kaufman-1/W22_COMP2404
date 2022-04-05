@@ -30,7 +30,7 @@ FH_Part::FH_Part(string n, int flightHrs): fh_inspect(flightHrs), Part(n){}
 
 FH_Part::~FH_Part() {};
 
-bool FH_Part::inspection(Date& d) {
+bool FH_Part::inspection(Date& d) const{
     return flightHours >= fh_inspect;
 }
 
@@ -44,7 +44,7 @@ IT_Part::IT_Part(string n, int timeInstalled) : it_inspect(timeInstalled) , Part
 
 IT_Part::~IT_Part() {};
 
-bool IT_Part::inspection(Date& d) {
+bool IT_Part::inspection(Date& d) const{
     return abs(d.toDays() - installationDate.toDays()) >= it_inspect;
 }
 
@@ -58,7 +58,7 @@ FHIT_Part::FHIT_Part(string n, int flightHrs, int timeInstalled) : FH_Part(n, fl
 
 FHIT_Part::~FHIT_Part() {};
 
-bool FHIT_Part::inspection(Date& d){
+bool FHIT_Part::inspection(Date& d) const{
     return (FH_Part::inspection(d) || IT_Part::inspection(d));
 }
 
